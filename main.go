@@ -1,8 +1,10 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/oxodao/app-template/config"
+	"github.com/oxodao/app-template/fixtures"
 	"github.com/oxodao/app-template/log"
 	"github.com/oxodao/app-template/services"
 	"os"
@@ -34,6 +36,14 @@ func run() error {
 	prv, err := services.NewProvider(cfg)
 	if err != nil {
 		return err
+	}
+
+	shouldInitializeDb := flag.Bool("init-db", false, "Should initialize the database")
+	forceDb := flag.Bool("force", false, "Force the DB initialization")
+	flag.Parse()
+
+	if *shouldInitializeDb {
+		fixtures.InitializeDB(prv, *forceDb)
 	}
 
 	go RunServer(prv)

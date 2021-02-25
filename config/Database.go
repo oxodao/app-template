@@ -8,7 +8,7 @@ type DB struct {
 	Username   string
 	Password   string
 	Hostname   string
-	Port       string
+	Port       int
 	Database   string
 	CustomArgs string
 }

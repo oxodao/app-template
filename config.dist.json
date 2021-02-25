@@ -1,4 +1,12 @@
 {
+  "Database": {
+    "Username": "app-template",
+    "Password": "app-template",
+    "Hostname": "atdb",
+    "Port": 5432,
+    "Database": "app-template",
+    "CustomArgs": "sslmode=disable"
+  },
   "Web": {
     "ListeningHost": "0.0.0.0:8000"
   }
