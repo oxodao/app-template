@@ -8,10 +8,11 @@ type Level struct {
 
 var (
 	LevelDebug = Level{ 0, "DEBUG", white}
-	LevelInfo  = Level{ 1, "INFO", green}
+	LevelError = Level{ 1, "ERROR", red}
 	LevelWarn  = Level{ 2, "WARN", yellow}
-	LevelError = Level{ 3, "ERROR", red}
+	LevelInfo  = Level{ 3, "INFO", green}
 
+	LevelFatal = Level{ 999999, "DEBUG", red}
 	LevelInfoAlwaysOn = Level{ 999999, "INFO", green}
 )
 

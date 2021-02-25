@@ -6,11 +6,8 @@ import (
 )
 
 type Config struct {
-
-	Web struct {
-		ListeningHost string
-	}
-
+	Database DB
+	Web      Web
 }
 
 func LoadConfig() (*Config, error) {

@@ -2,6 +2,7 @@ package log
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -15,7 +16,7 @@ func CreateLogger(setLevel Level) {
 	}
 }
 
-func log(currLevel Level, msg string) {
+func log(currLevel Level, msg interface{}) {
 	if level == nil {
 		panic("LOGGER NOT INITIALIZED!")
 	}
@@ -29,22 +30,27 @@ func log(currLevel Level, msg string) {
 	}
 }
 
-func Debug(msg string) {
+func Fatal(msg interface{}) {
+	log(LevelFatal, msg)
+	os.Exit(2)
+}
+
+func Debug(msg interface{}) {
 	log(LevelDebug, msg)
 }
 
-func Info(msg string) {
+func Info(msg interface{}) {
 	log(LevelInfo, msg)
 }
 
-func InfoAlways(msg string) {
+func InfoAlways(msg interface{}) {
 	log(LevelInfoAlwaysOn, msg)
 }
 
-func Warn(msg string) {
+func Warn(msg interface{}) {
 	log(LevelWarn, msg)
 }
 
-func Error(msg string) {
+func Error(msg interface{}) {
 	log(LevelError, msg)
 }
